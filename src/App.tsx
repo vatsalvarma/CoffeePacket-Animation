@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ShoppingBag, Leaf, Droplets, Flame } from 'lucide-react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
@@ -13,7 +13,7 @@ const coffees = [
     name: "GOLDEN RESERVE",
     subtitle: "Premium Espresso Roast",
     description: "A rich and bold espresso roast with hints of dark chocolate, toasted almonds, and a velvet caramel finish. Hand-selected from the finest high-altitude estates.",
-    image: "/coffee_gold.png",
+    image: import.meta.env.BASE_URL + "coffee_gold.png",
     bgColor: "#12110c",
     accentColor: "#D4AF37",
     price: "$24.99",
@@ -26,7 +26,7 @@ const coffees = [
     name: "RUBY ORIGIN",
     subtitle: "Wild Berry & Citrus",
     description: "A bright, fruity medium roast featuring exhilarating notes of wild berries, sweet citrus, and a clean, vibrant finish. Cultivated in volcanic, nutrient-rich soils.",
-    image: "/coffee_ruby.png",
+    image: import.meta.env.BASE_URL + "coffee_ruby.png",
     bgColor: "#1a0f12",
     accentColor: "#E0115F",
     price: "$28.00",
@@ -39,7 +39,7 @@ const coffees = [
     name: "EMERALD FOREST",
     subtitle: "Smooth & Earthy",
     description: "A smooth, earthy light roast with a refreshing botanical finish. Shade-grown under the dense canopies of tropical rainforests to preserve natural flavor profiles.",
-    image: "/coffee_emerald.png",
+    image: import.meta.env.BASE_URL + "coffee_emerald.png",
     bgColor: "#0a1410",
     accentColor: "#50C878",
     price: "$22.50",
@@ -163,13 +163,13 @@ function App() {
     setCurrentIndex((prev) => (prev === 0 ? coffees.length - 1 : prev - 1));
   };
 
-  const fadeUpVariant = {
-    initial: (dir: number) => ({ y: 40, opacity: 0, filter: "blur(8px)" }),
+  const fadeUpVariant: Variants = {
+    initial: () => ({ y: 40, opacity: 0, filter: "blur(8px)" }),
     animate: { y: 0, opacity: 1, filter: "blur(0px)", transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } },
-    exit: (dir: number) => ({ y: -40, opacity: 0, filter: "blur(8px)", transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] } })
+    exit: () => ({ y: -40, opacity: 0, filter: "blur(8px)", transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] } })
   };
 
-  const imageVariants = {
+  const imageVariants: Variants = {
     initial: (dir: number) => ({
       x: dir === 1 ? '50vw' : '-50vw',
       scale: 0.8, rotateZ: dir === 1 ? 25 : -25, opacity: 0
