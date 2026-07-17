@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #090909;
+  --color-brand-card: #171717;
+  --color-brand-accent: #D4AF37;
+  --color-brand-text: #F5F5F5;
+  --font-sans: 'Inter', 'Roboto', sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-brand-bg);
+    color: var(--color-brand-text);
+    font-family: var(--font-sans);
+    margin: 0;
+    overflow-x: hidden;
+  }
+}
