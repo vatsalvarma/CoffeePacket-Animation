@@ -1,4 +1,6 @@
-# React + TypeScript + Vite
+# https://vatsalvarma.github.io/CoffeePacket-Animation/
+<img width="1900" height="862" alt="image" src="https://github.com/user-attachments/assets/0db90af0-d547-42c7-aa72-e6d4b56589e7" />
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
